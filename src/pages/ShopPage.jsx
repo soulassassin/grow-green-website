@@ -88,7 +88,7 @@ export default function ShopPage({ addToCart, showToast }) {
   };
 
   return (
-    <div style={{ paddingTop: '100px' }}>
+    <div className="page-wrapper" style={{ paddingTop: '100px' }}>
       {/* Header Banner */}
       <section style={{ background: '#0D4733', color: '#FFFFFF', padding: '50px 0 36px 0' }}>
         <div className="container" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '20px' }}>

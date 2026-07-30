@@ -1154,10 +1154,13 @@ button {
   .service-card-text { padding: 32px; order: 2 !important; }
   .service-card-img { min-height: 260px; order: 1 !important; }
   .canvas-container-3d { height: 440px; }
-  .hero-section { min-height: auto; padding-top: 130px; padding-bottom: 60px; }
+  .hero-section { min-height: auto; padding-top: 160px !important; padding-bottom: 60px; }
+  .page-wrapper { padding-top: 145px !important; }
 }
 
 @media (max-width: 768px) {
+  .hero-section { padding-top: 175px !important; }
+  .page-wrapper { padding-top: 155px !important; }
   .container { padding: 0 18px; }
   .section-padding { padding: 56px 0; }
   
@@ -1205,6 +1208,8 @@ button {
 }
 
 @media (max-width: 480px) {
+  .hero-section { padding-top: 185px !important; }
+  .page-wrapper { padding-top: 165px !important; }
   .container { padding: 0 14px; }
   .section-padding { padding: 44px 0; }
   .hero-title { font-size: 1.85rem; }

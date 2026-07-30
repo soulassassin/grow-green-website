@@ -91,7 +91,7 @@ export default function ServicesPage({ openQuoteModal }) {
   ];
 
   return (
-    <div style={{ paddingTop: '100px' }}>
+    <div className="page-wrapper" style={{ paddingTop: '100px' }}>
       {/* Header Banner */}
       <section style={{ background: '#0D4733', color: '#FFFFFF', padding: '60px 0 40px 0', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '800px' }}>

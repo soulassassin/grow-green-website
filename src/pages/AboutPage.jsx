@@ -4,7 +4,7 @@ import { Award, ShieldCheck, Sprout, HeartHandshake } from 'lucide-react';
 
 export default function AboutPage({ openQuoteModal }) {
   return (
-    <div style={{ paddingTop: '100px' }}>
+    <div className="page-wrapper" style={{ paddingTop: '100px' }}>
       {/* Hero Header */}
       <section style={{ background: 'linear-gradient(135deg, #0D4733 0%, #072B1F 100%)', color: '#FFFFFF', padding: '60px 0 40px 0', textAlign: 'center' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
