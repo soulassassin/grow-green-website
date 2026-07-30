@@ -1087,8 +1087,69 @@ button {
 }
 
 @media (max-width: 992px) {
+  .navbar-container {
+    display: grid !important;
+    grid-template-columns: 44px 1fr auto !important;
+    align-items: center;
+    justify-items: center;
+    height: 72px !important;
+    padding: 0 16px !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1;
+    justify-self: start;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #F4F7F4 !important;
+    border: none;
+    cursor: pointer;
+  }
+
+  .brand-logo {
+    grid-column: 2;
+    justify-self: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .brand-logo-img {
+    height: 48px !important;
+  }
+
+  .brand-title {
+    font-size: 1.1rem !important;
+  }
+
+  .brand-subtitle {
+    font-size: 0.58rem !important;
+  }
+
+  .nav-actions {
+    grid-column: 3;
+    justify-self: end;
+    gap: 8px !important;
+  }
+
+  .cart-text {
+    display: none !important;
+  }
+
+  .cart-btn {
+    padding: 9px 11px !important;
+    border-radius: 50% !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .nav-links { display: none; }
-  .mobile-menu-btn { display: flex !important; }
   .service-split-card { grid-template-columns: 1fr; }
   .service-card-text { padding: 32px; order: 2 !important; }
   .service-card-img { min-height: 260px; order: 1 !important; }
