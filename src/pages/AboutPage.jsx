@@ -12,10 +12,10 @@ export default function AboutPage({ openQuoteModal }) {
             Our Heritage & Roots
           </span>
           <h1 style={{ color: '#FFFFFF', fontSize: '2.5rem', marginTop: '8px', marginBottom: '14px', fontFamily: "'Montserrat', sans-serif" }}>
-            Cultivating Excellence Across South Africa
+            Cultivating Excellence in Johannesburg
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Founded with a passion for South Africa's rich biodiversity, Grow Green blends ecological stewardship with luxury landscape architecture.
+            Founded with a passion for South Africa's rich biodiversity, Grow Green blends ecological stewardship with luxury landscape architecture in Johannesburg.
           </p>
         </div>
       </section>
@@ -31,7 +31,7 @@ export default function AboutPage({ openQuoteModal }) {
                 At Grow Green, we believe every garden, patio, and commercial courtyard is a living canvas. We prioritize South African indigenous flora—from the drought-hardy Spekboom of the Eastern Cape to the iconic King Proteas of the Fynbos kingdom.
               </p>
               <p style={{ color: '#4A5D54', fontSize: '1rem', lineHeight: 1.7, marginBottom: '28px' }}>
-                Under the leadership of CEO & Founder <strong>Cullen Hettema</strong>, our executive leadership team (Alvin, Melody, and Eric) brings specialized botanical expertise, precision 3D architecture, and site logistics to deliver climate-resilient landscapes.
+                Under the leadership of CEO & Founder <strong>Cullen Hettema</strong>, our executive leadership team (Alvin, Melody, and Eric) brings specialized botanical expertise, precision 3D architecture, and site logistics to deliver climate-resilient landscapes in Johannesburg.
               </p>
 
               <div className="responsive-grid-2" style={{ gap: '16px' }}>
@@ -108,7 +108,7 @@ export default function AboutPage({ openQuoteModal }) {
 
             <div>
               <span className="section-subtitle">The Grow Green Advantage</span>
-              <h2 className="section-title">Why South Africa Trusts Grow Green</h2>
+              <h2 className="section-title">Why Johannesburg Trusts Grow Green</h2>
               <p style={{ color: '#4A5D54', fontSize: '0.98rem', marginBottom: '28px' }}>
                 We combine technical precision, high-end aesthetics, and local botanical knowledge to craft spaces that stand out.
               </p>

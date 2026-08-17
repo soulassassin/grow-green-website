@@ -10,8 +10,8 @@ export default function ServicesPage({ openQuoteModal }) {
       category: 'Home & Estate',
       icon: <Home size={32} color="#8CB974" />,
       image: '/images/service_residential.jpg',
-      shortDesc: 'Complete 3D landscape architecture, hardscaping, and indigenous garden design for luxury South African residences.',
-      fullDesc: 'Our residential team transforms private gardens, courtyards, and luxury estates into sustainable living sanctuaries. Led by Eric and CEO Cullen Hettema, we combine architectural precision with native South African flora.',
+      shortDesc: 'Complete 3D landscape architecture, hardscaping, and indigenous garden design for luxury Johannesburg residences.',
+      fullDesc: 'Our residential team transforms private gardens, courtyards, and luxury estates in Johannesburg into sustainable living sanctuaries. Led by Eric and CEO Cullen Hettema, we combine architectural precision with native South African flora.',
       features: [
         'Custom 3D CAD garden designs & site masterplans',
         'Custom stone paving, retainment walls & hardscaping',
@@ -27,8 +27,8 @@ export default function ServicesPage({ openQuoteModal }) {
       category: 'Commercial',
       icon: <Building size={32} color="#8CB974" />,
       image: '/images/service_commercial.jpg',
-      shortDesc: 'Vertical green walls, indoor plant scaping, and eco-friendly outdoor courtyards for corporate office parks and retail spaces.',
-      fullDesc: 'We help corporations boost productivity and environmental sustainability through biophilic office designs. From hydroponic living walls to low-maintenance indoor planter displays.',
+      shortDesc: 'Vertical green walls, indoor plant scaping, and eco-friendly outdoor courtyards for corporate office parks and retail spaces in Johannesburg.',
+      fullDesc: 'We help corporations in Johannesburg boost productivity and environmental sustainability through biophilic office designs. From hydroponic living walls to low-maintenance indoor planter displays.',
       features: [
         'Living vertical green wall design & installation',
         'Indoor air-purifying office plant leasing & care',
@@ -44,8 +44,8 @@ export default function ServicesPage({ openQuoteModal }) {
       category: 'Maintenance',
       icon: <ShieldCheck size={32} color="#8CB974" />,
       image: '/images/service_maintenance.jpg',
-      shortDesc: 'Weekly or monthly estate care, turf management, organic fertilization, and seasonal pruning by certified horticulturists.',
-      fullDesc: 'Keep your property looking pristine year-round. Our dedicated team (managed by Alvin) provides precision hedging, lawn edging, organic pest control, and seasonal feeding tailored to South African weather.',
+      shortDesc: 'Weekly or monthly estate care in Johannesburg, turf management, organic fertilization, and seasonal pruning by certified horticulturists.',
+      fullDesc: 'Keep your Johannesburg property looking pristine year-round. Our dedicated team (managed by Alvin) provides precision hedging, lawn edging, organic pest control, and seasonal feeding tailored to South African weather.',
       features: [
         'Scheduled weekly lawn mowing & turf care',
         'Organic soil fertilization & weed management',
@@ -78,8 +78,8 @@ export default function ServicesPage({ openQuoteModal }) {
       category: 'Engineering',
       icon: <Droplets size={32} color="#8CB974" />,
       image: '/images/about_blueprint.jpg',
-      shortDesc: 'Automated solar-powered drip irrigation networks and greywater recycling systems designed for maximum water conservation.',
-      fullDesc: 'Water conservation is at the heart of Grow Green. We install smart weather-aware irrigation systems that monitor rain patterns and optimize watering schedules.',
+      shortDesc: 'Automated solar-powered drip irrigation networks and greywater recycling systems in Johannesburg, designed for maximum water conservation.',
+      fullDesc: 'Water conservation is at the heart of Grow Green. We install smart weather-aware irrigation systems in Johannesburg that monitor rain patterns and optimize watering schedules.',
       features: [
         'Smart Wi-Fi & solar-powered irrigation controllers',
         'Precision sub-surface drip irrigation piping',
@@ -102,7 +102,7 @@ export default function ServicesPage({ openQuoteModal }) {
             Our Professional Services
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            From initial 3D landscape architecture to ongoing estate care and bulk indigenous nursery supply across South Africa.
+            From initial 3D landscape architecture to ongoing estate care in Johannesburg and bulk indigenous nursery supply across South Africa.
           </p>
         </div>
       </section>
