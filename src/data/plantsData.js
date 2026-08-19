@@ -568,7 +568,7 @@ export const teamData = [
     name: "Cullen Hettema",
     role: "CEO & Founder",
     image: "/images/staff_cullen.jpg",
-    bio: "Visionary founder of Grow Green with over 14 years of hands-on experience in South African estate garden architecture, turf management, and master landscape design.",
+    bio: "Visionary founder of Grow Green with over 7+ years of hands-on experience in Johannesburg estate garden architecture, turf management, and master landscape design.",
     specialty: "Master Landscape Design & Executive Strategy"
   },
   {
@@ -576,7 +576,7 @@ export const teamData = [
     name: "Alvin",
     role: "Chief Operations & Pruning Lead",
     image: "/images/staff_alvin.jpg",
-    bio: "Oversees nursery production logistics, site operations, and precision horticultural pruning to ensure estate garden health and beauty.",
+    bio: "Oversees nursery production logistics, site operations, and precision horticultural pruning to ensure Johannesburg estate garden health and beauty.",
     specialty: "Nursery Operations & Precision Pruning"
   },
   {
@@ -584,7 +584,7 @@ export const teamData = [
     name: "Melody",
     role: "Senior Horticultural & Hardscape Design Lead",
     image: "/images/staff_melody.jpg",
-    bio: "Leads our botanical selection, natural timber styling, and estate garden design teams for sustainable outdoor living spaces.",
+    bio: "Leads our botanical selection, natural timber styling, and Johannesburg estate garden design teams for sustainable outdoor living spaces.",
     specialty: "Botanical Care & Hardscape Design"
   },
   {
@@ -592,12 +592,7 @@ export const teamData = [
     name: "Eric",
     role: "Eco-Wetland & Landscape Construction Lead",
     image: "/images/staff_eric.jpg",
-    bio: "Drives specialized indigenous wetland restoration, 3D site architecture, and eco-estate installations across South Africa.",
+    bio: "Drives specialized indigenous wetland restoration, 3D site architecture, and eco-estate installations in Johannesburg.",
     specialty: "Wetland Restoration & Site Build"
   }
 ];
-
-
-
-
-
