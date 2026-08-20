@@ -112,7 +112,7 @@ export default function Footer({ setActivePage }) {
                 </div>
                 <div>
                   <span style={{ display: 'block', fontSize: '0.75rem', color: '#8CB974', textTransform: 'uppercase', fontWeight: 600 }}>Service Regions</span>
-                  <span style={{ fontSize: '0.88rem' }}>Western Cape & Gauteng, South Africa</span>
+                  <span style={{ fontSize: '0.88rem' }}>Johannesburg, South Africa</span>
                 </div>
               </div>
             </div>

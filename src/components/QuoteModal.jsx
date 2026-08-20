@@ -98,9 +98,9 @@ export default function QuoteModal({ isOpen, onClose, showToast }) {
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                 >
                   <option value="Residential Landscaping & Garden Architecture">Residential Landscaping & Garden Architecture</option>
-                  <option value="Commercial & Office Park Plant Installation">Commercial & Office Park Plant Installation</option>
-                  <option value="Ongoing Lawn Care & Estate Maintenance">Ongoing Lawn Care & Estate Maintenance</option>
-                  <option value="Bulk Indigenous Plant Nursery Supply">Bulk Indigenous Plant Nursery Supply</option>
+                  <option value="Commercial & Corporate Plant Scaping">Commercial & Corporate Plant Scaping</option>
+                  <option value="Ongoing Estate & Lawn Care Maintenance">Ongoing Estate & Lawn Care Maintenance</option>
+                  <option value="Indigenous Plant & Protea Nursery Supply">Indigenous Plant & Protea Nursery Supply</option>
                 </select>
               </div>
 
@@ -109,7 +109,7 @@ export default function QuoteModal({ isOpen, onClose, showToast }) {
                 <input 
                   type="text" 
                   className="form-input" 
-                  placeholder="e.g. Constantia, Cape Town or Sandton, JHB"
+                  placeholder="e.g. Sandton or Bryanston, JHB"
                   value={formData.location}
                   onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                 />

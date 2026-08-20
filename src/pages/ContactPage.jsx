@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle2, Clock } from 'lucide-react';
+import MapComponent from '../components/GoogleMap';
 
 export default function ContactPage({ showToast }) {
   const [formData, setFormData] = useState({
@@ -215,35 +216,19 @@ export default function ContactPage({ showToast }) {
       <section className="section-padding" style={{ background: '#F4F7F4', borderTop: '1px solid #E0E7E2' }}>
         <div className="container">
           <div className="section-header">
-            <span className="section-subtitle">South Africa Coverage</span>
-            <h2 className="section-title">Our Primary Service Hubs & Nursery</h2>
+            <span className="section-subtitle">Our Location</span>
+            <h2 className="section-title">Johannesburg Nursery & Service Hub</h2>
             <p className="section-desc">
-              We service luxury residential estates, commercial hubs, and agricultural properties across Western Cape and Gauteng.
+              Our nursery is located at 31 Urania St, Observatory, serving as our central hub for all landscaping projects across Johannesburg.
             </p>
           </div>
 
-          <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 16px 40px rgba(13, 71, 51, 0.12)', background: '#0D4733' }}>
-            <img 
-              src="/images/contact_map.jpg" 
-              alt="South Africa Service Map" 
-              style={{ width: '100%', height: '380px', objectFit: 'cover', opacity: 0.85 }} 
-            />
-
-            {/* Map Overlay Card */}
-            <div className="map-overlay-card">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                <MapPin size={20} color="#8CB974" />
-                <h4 style={{ color: '#FFFFFF', fontSize: '1.05rem', fontFamily: "'Montserrat', sans-serif" }}>Grow Green South Africa</h4>
-              </div>
-              <ul style={{ listStyle: 'none', fontSize: '0.88rem', display: 'flex', flexDirection: 'column', gap: '8px', color: 'rgba(255,255,255,0.85)' }}>
-                <li>📍 <strong>Western Cape Hub:</strong> Cape Town & Winelands</li>
-                <li>📍 <strong>Gauteng Hub:</strong> Johannesburg & Pretoria</li>
-                <li>🚚 <strong>Nationwide Shipping:</strong> Nursery Plants across SA</li>
-              </ul>
-            </div>
+          <div style={{ height: '450px', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 16px 40px rgba(13, 71, 51, 0.12)' }}>
+            <MapComponent />
           </div>
         </div>
       </section>
+
     </div>
   );
 }

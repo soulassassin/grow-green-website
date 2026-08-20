@@ -12,21 +12,21 @@ export default function HomePage({ setActivePage, openQuoteModal, addToCart, sho
       id: 'residential',
       title: 'Residential Landscaping',
       subtitle: 'Luxury Estate & Home Gardens',
-      desc: 'Bespoke architectural garden design, hardscaping, lawn installation, and indigenous floral displays tailored to your luxury South African home.',
+      desc: 'Bespoke architectural garden design, hardscaping, and indigenous floral displays tailored to your luxury Johannesburg home.',
       image: '/images/service_residential.jpg'
     },
     {
       id: 'commercial',
       title: 'Commercial Plant Installation',
       subtitle: 'Office Parks & Retail Complexes',
-      desc: 'Eco-friendly urban greenery, living vertical plant walls, and interior/exterior plant scaping designed to elevate corporate environments.',
+      desc: 'Eco-friendly urban greenery, living vertical plant walls, and interior/exterior plant scaping designed to elevate Johannesburg corporate environments.',
       image: '/images/service_commercial.jpg'
     },
     {
       id: 'maintenance',
       title: 'Ongoing Lawn & Estate Care',
       subtitle: 'Precision Maintenance & Care',
-      desc: 'Professional turf management, organic soil fertilization, pest control, and seasonal pruning by certified horticulturists.',
+      desc: 'Professional turf management, organic soil fertilization, pest control, and seasonal pruning by certified horticulturists in Johannesburg.',
       image: '/images/service_maintenance.jpg'
     }
   ];
@@ -46,7 +46,7 @@ export default function HomePage({ setActivePage, openQuoteModal, addToCart, sho
                 Transforming Spaces, <span style={{ fontFamily: "'Montserrat', sans-serif" }}>Growing Life.</span>
               </h1>
               <p className="hero-description">
-                Grow Green crafts breathtaking, eco-friendly luxury landscapes and supplies top-tier indigenous nursery plants across South Africa.
+                Grow Green crafts breathtaking, eco-friendly luxury landscapes in Johannesburg and supplies top-tier indigenous nursery plants across South Africa.
               </p>
               <div className="hero-cta-group">
                 <button className="btn btn-primary" onClick={openQuoteModal}>
