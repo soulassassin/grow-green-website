@@ -568,6 +568,7 @@ export const teamData = [
     name: "Cullen Hettema",
     role: "CEO & Founder",
     image: "/images/CullenStaffImage.jpeg",
+    imagePosition: "center 48%",
     bio: "Visionary founder of Grow Green with over 7+ years of hands-on experience in Johannesburg estate garden architecture, turf management, and master landscape design.",
     specialty: "Master Landscape Design & Executive Strategy"
   },
@@ -576,23 +577,26 @@ export const teamData = [
     name: "Alvin",
     role: "Project Manager & Pruning Lead",
     image: "/images/staff_alvin.jpg",
+    imagePosition: "center 20%",
     bio: "Oversees nursery production logistics, site operations, and precision horticultural pruning to ensure Johannesburg estate garden health and beauty.",
     specialty: "Nursery Operations & Precision Pruning"
   },
   {
     id: 3,
     name: "Melody",
-    role: "Senior Horticultural & Hardscape Design Lead",
+    role: "Specialist in Hardscaping",
     image: "/images/staff_melody.jpg",
-    bio: "Leads our botanical selection, natural timber styling, and Johannesburg estate garden design teams for sustainable outdoor living spaces.",
-    specialty: "Botanical Care & Hardscape Design"
+    imagePosition: "center 25%",
+    bio: "Leads our structural stonework, custom retaining walls, paving, and precision hardscaping installations for sustainable outdoor living spaces.",
+    specialty: "Hardscaping & Structural Stonework"
   },
   {
     id: 4,
     name: "Eric",
-    role: "Eco-Wetland & Landscape Construction Lead",
+    role: "Specialist in Soft-Landscaping",
     image: "/images/EricStaffImage.jpeg",
-    bio: "Drives specialized indigenous wetland restoration, 3D site architecture, and eco-estate installations in Johannesburg.",
-    specialty: "Wetland Restoration & Site Build"
+    imagePosition: "center 20%",
+    bio: "Specializes in soft-landscaping, indigenous flora planting, turf establishment, and climate-resilient garden installations across Johannesburg.",
+    specialty: "Soft-Landscaping & Indigenous Planting"
   }
 ];

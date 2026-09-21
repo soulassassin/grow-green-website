@@ -1036,6 +1036,10 @@ button {
   transition: transform 0.5s ease;
 }
 
+.team-img-box img[src*="CullenStaffImage"] {
+  object-position: center 48%;
+}
+
 .team-card:hover .team-img-box img {
   transform: scale(1.05);
 }

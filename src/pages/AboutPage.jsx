@@ -78,7 +78,11 @@ export default function AboutPage({ openQuoteModal }) {
             {teamData.map((member) => (
               <div className="team-card" key={member.id}>
                 <div className="team-img-box">
-                  <img src={member.image} alt={member.name} />
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    style={member.imagePosition ? { objectPosition: member.imagePosition } : undefined}
+                  />
                 </div>
                 <div className="team-info">
                   <h3 className="team-name" style={{ fontSize: '1.25rem' }}>{member.name}</h3>
