@@ -574,7 +574,7 @@ export const teamData = [
   {
     id: 2,
     name: "Alvin",
-    role: "Chief Operations & Pruning Lead",
+    role: "Project Manager & Pruning Lead",
     image: "/images/staff_alvin.jpg",
     bio: "Oversees nursery production logistics, site operations, and precision horticultural pruning to ensure Johannesburg estate garden health and beauty.",
     specialty: "Nursery Operations & Precision Pruning"
