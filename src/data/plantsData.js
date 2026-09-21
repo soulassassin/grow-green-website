@@ -567,7 +567,7 @@ export const teamData = [
     id: 1,
     name: "Cullen Hettema",
     role: "CEO & Founder",
-    image: "/images/staff_cullen.jpg",
+    image: "/images/CullenStaffImage.jpeg",
     bio: "Visionary founder of Grow Green with over 7+ years of hands-on experience in Johannesburg estate garden architecture, turf management, and master landscape design.",
     specialty: "Master Landscape Design & Executive Strategy"
   },
@@ -591,7 +591,7 @@ export const teamData = [
     id: 4,
     name: "Eric",
     role: "Eco-Wetland & Landscape Construction Lead",
-    image: "/images/staff_eric.jpg",
+    image: "/images/EricStaffImage.jpeg",
     bio: "Drives specialized indigenous wetland restoration, 3D site architecture, and eco-estate installations in Johannesburg.",
     specialty: "Wetland Restoration & Site Build"
   }
