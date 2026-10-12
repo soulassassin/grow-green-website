@@ -102,9 +102,10 @@ export default function ContactPage({ showToast }) {
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     >
                       <option value="Residential Landscaping & Garden Architecture">Residential Landscaping & Garden Architecture</option>
-                      <option value="Commercial Plant Installation">Commercial Plant Installation</option>
-                      <option value="Ongoing Estate Lawn Care">Ongoing Estate Lawn Care</option>
-                      <option value="Nursery Plant Order Inquiry">Nursery Plant Order Inquiry</option>
+                      <option value="Commercial & Corporate Plant Scaping">Commercial & Corporate Plant Scaping</option>
+                      <option value="Ongoing Estate & Lawn Care Maintenance">Ongoing Estate & Lawn Care Maintenance</option>
+                      <option value="Indigenous Plant & Protea Nursery Supply">Indigenous Plant & Protea Nursery Supply</option>
+                      <option value="Smart Eco-Irrigation & Greywater Systems">Smart Eco-Irrigation & Greywater Systems</option>
                     </select>
                   </div>
 

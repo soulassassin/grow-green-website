@@ -1,7 +1,7 @@
 import React from 'react';
 import SproutingHeroCanvas from '../components/SproutingHeroCanvas';
 import TipOfTheDay from '../components/TipOfTheDay';
-import { ArrowRight, CheckCircle2, Leaf, ShieldCheck, Sun, Droplets, Heart } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Leaf, ShieldCheck, Sun, Droplets, Heart, Award } from 'lucide-react';
 import { plantsData } from '../data/plantsData';
 
 export default function HomePage({ setActivePage, openQuoteModal, addToCart, showToast }) {
@@ -46,7 +46,7 @@ export default function HomePage({ setActivePage, openQuoteModal, addToCart, sho
                 Transforming Spaces, <span style={{ fontFamily: "'Montserrat', sans-serif" }}>Growing Life.</span>
               </h1>
               <p className="hero-description">
-                Grow Green crafts breathtaking, eco-friendly luxury landscapes in Johannesburg and supplies top-tier indigenous nursery plants across South Africa.
+                Grow Green crafts breathtaking, eco-friendly luxury landscapes in Johannesburg and supplies top-tier indigenous nursery plants across South Africa, backed by 7+ years of experience.
               </p>
               <div className="hero-cta-group">
                 <button className="btn btn-primary" onClick={openQuoteModal}>
@@ -59,6 +59,10 @@ export default function HomePage({ setActivePage, openQuoteModal, addToCart, sho
 
               {/* Trust Badges */}
               <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', marginTop: '36px', paddingTop: '20px', borderTop: '1px solid rgba(13,71,51,0.1)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Award size={20} color="#8CB974" />
+                  <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#1B2A23' }}>7+ Years of Experience</span>
+                </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <ShieldCheck size={20} color="#8CB974" />
                   <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#1B2A23' }}>Native SA Flora</span>

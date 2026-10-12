@@ -102,7 +102,7 @@ export default function ServicesPage({ openQuoteModal }) {
             Our Professional Services
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            From initial 3D landscape architecture to ongoing estate care in Johannesburg and bulk indigenous nursery supply across South Africa.
+            Backed by 7+ years of experience, from initial 3D landscape architecture to ongoing estate care in Johannesburg and bulk indigenous nursery supply across South Africa.
           </p>
         </div>
       </section>

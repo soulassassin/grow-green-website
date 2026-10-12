@@ -21,7 +21,7 @@ export default function Footer({ setActivePage }) {
               </div>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '0.94rem', marginBottom: '24px', lineHeight: 1.6 }}>
-              South Africa's premier eco-conscious landscape architecture and indigenous plant nursery. Transforming residential, commercial, and agricultural spaces into thriving green sanctuaries.
+              South Africa's premier eco-conscious landscape architecture and indigenous plant nursery. With 7+ years of experience transforming residential, commercial, and agricultural spaces into thriving green sanctuaries.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.08)', padding: '10px 16px', borderRadius: '12px', border: '1px solid rgba(140,185,116,0.3)', width: 'fit-content' }}>
               <Leaf size={18} color="#8CB974" />

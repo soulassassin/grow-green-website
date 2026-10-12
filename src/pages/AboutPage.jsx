@@ -15,7 +15,7 @@ export default function AboutPage({ openQuoteModal }) {
             Cultivating Excellence in Johannesburg
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Founded with a passion for South Africa's rich biodiversity, Grow Green blends ecological stewardship with luxury landscape architecture in Johannesburg.
+            Founded with a passion for South Africa's rich biodiversity, Grow Green blends 7+ years of experience in ecological stewardship with luxury landscape architecture in Johannesburg.
           </p>
         </div>
       </section>
@@ -55,8 +55,8 @@ export default function AboutPage({ openQuoteModal }) {
                 style={{ width: '100%', borderRadius: '24px', boxShadow: '0 16px 40px rgba(13, 71, 51, 0.15)', objectFit: 'cover', minHeight: '320px', maxHeight: '440px' }} 
               />
               <div className="about-floating-badge">
-                <span style={{ fontSize: '2.2rem', fontWeight: 800, color: '#8CB974', display: 'block', lineHeight: 1 }}>14+</span>
-                <span style={{ fontSize: '0.88rem', fontWeight: 600 }}>Years of Landscaping Excellence</span>
+                <span style={{ fontSize: '2.2rem', fontWeight: 800, color: '#8CB974', display: 'block', lineHeight: 1 }}>7+</span>
+                <span style={{ fontSize: '0.88rem', fontWeight: 600 }}>Years of Experience</span>
               </div>
             </div>
           </div>
@@ -123,8 +123,8 @@ export default function AboutPage({ openQuoteModal }) {
                     <Award size={22} color="#0D4733" />
                   </div>
                   <div>
-                    <h4 style={{ fontSize: '1.05rem', color: '#0D4733', marginBottom: '4px' }}>Executive Botanical Leadership</h4>
-                    <p style={{ fontSize: '0.88rem', color: '#4A5D54' }}>Our leadership holds recognized credentials in botanical science and site architecture.</p>
+                    <h4 style={{ fontSize: '1.05rem', color: '#0D4733', marginBottom: '4px' }}>7+ Years of Experience & Leadership</h4>
+                    <p style={{ fontSize: '0.88rem', color: '#4A5D54' }}>With 7+ years of experience, our executive leadership brings recognized mastery in botanical science, turf management, and site architecture.</p>
                   </div>
                 </div>
 

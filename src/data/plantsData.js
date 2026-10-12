@@ -569,7 +569,7 @@ export const teamData = [
     role: "CEO & Founder",
     image: "/images/CullenStaffImage.jpeg",
     imagePosition: "center 48%",
-    bio: "Visionary founder of Grow Green with over 7+ years of hands-on experience in Johannesburg estate garden architecture, turf management, and master landscape design.",
+    bio: "Visionary founder of Grow Green with 7+ years of experience in Johannesburg estate garden architecture, turf management, and master landscape design.",
     specialty: "Master Landscape Design & Executive Strategy"
   },
   {
