@@ -147,6 +147,7 @@ export default function SproutingHeroCanvas() {
     });
 
     // F. Golden Pollen Particles
+    const pollenGeo = new THREE.BufferGeometry();
     const pollenCount = 80;
     const pPositions = new Float32Array(pollenCount * 3);
     for (let i = 0; i < pollenCount * 3; i += 3) {
@@ -292,9 +293,11 @@ export default function SproutingHeroCanvas() {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
-      if (container && renderer.domElement) {
+      if (container && renderer.domElement && container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
+      pollenGeo.dispose();
+      pollenMat.dispose();
       renderer.dispose();
     };
   }, []);

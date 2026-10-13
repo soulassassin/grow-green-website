@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import CartDrawer from './components/CartDrawer';
 import QuoteModal from './components/QuoteModal';
+import ErrorBoundary from './components/ErrorBoundary';
 
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
@@ -157,56 +158,58 @@ export default function App() {
 
       {/* Main Page View Router */}
       <main style={{ flex: 1 }}>
-        {activePage === 'home' && (
-          <HomePage 
-            setActivePage={handleSetActivePage}
-            openQuoteModal={() => setIsQuoteModalOpen(true)}
-            addToCart={addToCart}
-            showToast={showToast}
-          />
-        )}
+        <ErrorBoundary>
+          {activePage === 'home' && (
+            <HomePage 
+              setActivePage={handleSetActivePage}
+              openQuoteModal={() => setIsQuoteModalOpen(true)}
+              addToCart={addToCart}
+              showToast={showToast}
+            />
+          )}
 
-        {activePage === 'services' && (
-          <ServicesPage 
-            openQuoteModal={() => setIsQuoteModalOpen(true)}
-          />
-        )}
+          {activePage === 'services' && (
+            <ServicesPage 
+              openQuoteModal={() => setIsQuoteModalOpen(true)}
+            />
+          )}
 
-        {activePage === 'about' && (
-          <AboutPage 
-            openQuoteModal={() => setIsQuoteModalOpen(true)}
-          />
-        )}
+          {activePage === 'about' && (
+            <AboutPage 
+              openQuoteModal={() => setIsQuoteModalOpen(true)}
+            />
+          )}
 
-        {activePage === 'shop' && (
-          <ShopPage 
-            addToCart={addToCart}
-            showToast={showToast}
-          />
-        )}
+          {activePage === 'shop' && (
+            <ShopPage 
+              addToCart={addToCart}
+              showToast={showToast}
+            />
+          )}
 
-        {activePage === 'blog' && (
-          <BlogPage 
-            onSelectPost={handleSelectBlogPost}
-            openQuoteModal={() => setIsQuoteModalOpen(true)}
-          />
-        )}
+          {activePage === 'blog' && (
+            <BlogPage 
+              onSelectPost={handleSelectBlogPost}
+              openQuoteModal={() => setIsQuoteModalOpen(true)}
+            />
+          )}
 
-        {activePage === 'blog-post' && (
-          <BlogPostPage 
-            slug={activeBlogSlug}
-            onBack={() => handleSetActivePage('blog')}
-            onSelectPost={handleSelectBlogPost}
-            openQuoteModal={() => setIsQuoteModalOpen(true)}
-            showToast={showToast}
-          />
-        )}
+          {activePage === 'blog-post' && (
+            <BlogPostPage 
+              slug={activeBlogSlug}
+              onBack={() => handleSetActivePage('blog')}
+              onSelectPost={handleSelectBlogPost}
+              openQuoteModal={() => setIsQuoteModalOpen(true)}
+              showToast={showToast}
+            />
+          )}
 
-        {activePage === 'contact' && (
-          <ContactPage 
-            showToast={showToast}
-          />
-        )}
+          {activePage === 'contact' && (
+            <ContactPage 
+              showToast={showToast}
+            />
+          )}
+        </ErrorBoundary>
       </main>
 
       {/* Footer */}

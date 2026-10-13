@@ -1,5 +1,6 @@
 import React from 'react';
 import SproutingHeroCanvas from '../components/SproutingHeroCanvas';
+import ErrorBoundary from '../components/ErrorBoundary';
 import TipOfTheDay from '../components/TipOfTheDay';
 import { ArrowRight, CheckCircle2, Leaf, ShieldCheck, Sun, Droplets, Heart, Award } from 'lucide-react';
 import { plantsData } from '../data/plantsData';
@@ -75,7 +76,9 @@ export default function HomePage({ setActivePage, openQuoteModal, addToCart, sho
             </div>
 
             {/* 3D Sprouting Interactive Three.js Canvas */}
-            <SproutingHeroCanvas />
+            <ErrorBoundary fallback={<div className="canvas-container-3d" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(circle, #eaf2e8 0%, #d8e5d3 100%)', borderRadius: '24px' }}><img src="/images/service_residential.jpg" alt="Grow Green Landscaping" style={{ width: '90%', height: '80%', objectFit: 'cover', borderRadius: '16px' }} /></div>}>
+              <SproutingHeroCanvas />
+            </ErrorBoundary>
           </div>
         </div>
       </section>
