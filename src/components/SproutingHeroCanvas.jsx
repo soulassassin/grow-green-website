@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 export default function SproutingHeroCanvas() {
   const mountRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const hintTextRef = useRef(null);
 
   useEffect(() => {
     const container = mountRef.current;
@@ -21,9 +21,9 @@ export default function SproutingHeroCanvas() {
     camera.lookAt(0, 2.2, 0);
 
     // 3. Renderer Setup
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
@@ -147,7 +147,6 @@ export default function SproutingHeroCanvas() {
     });
 
     // F. Golden Pollen Particles
-    const pollenGeo = new THREE.BufferGeometry();
     const pollenCount = 80;
     const pPositions = new Float32Array(pollenCount * 3);
     for (let i = 0; i < pollenCount * 3; i += 3) {
@@ -165,9 +164,15 @@ export default function SproutingHeroCanvas() {
     const pollenParticles = new THREE.Points(pollenGeo, pollenMat);
     scene.add(pollenParticles);
 
-    // 6. Rapid Growth Scroll Sync (starts growing immediately!)
+    // 6. Growth Scroll Sync
     let progress = 0;
     let targetProgress = 0;
+
+    const updateHint = (val) => {
+      if (hintTextRef.current) {
+        hintTextRef.current.textContent = val === 100 ? '100% Full Canopy Tree ✨' : `${val}%`;
+      }
+    };
 
     const handleScroll = () => {
       if (!container) return;
@@ -176,22 +181,21 @@ export default function SproutingHeroCanvas() {
       if (isMobile) {
         const rect = container.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        // Start animation when top of canvas is 85% down the viewport (fully in view on mobile)
         const startPoint = windowHeight * 0.85;
         const scrollDistance = 220;
         const distScrolled = startPoint - rect.top;
         const p = Math.min(Math.max(distScrolled / scrollDistance, 0), 1);
         targetProgress = p;
-        setScrollProgress(Math.round(p * 100));
+        updateHint(Math.round(p * 100));
       } else {
         const scrollY = window.scrollY;
         const p = Math.min(Math.max(scrollY / 200, 0), 1);
         targetProgress = p;
-        setScrollProgress(Math.round(p * 100));
+        updateHint(Math.round(p * 100));
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
     // Mouse Parallax
@@ -201,34 +205,36 @@ export default function SproutingHeroCanvas() {
       mouseX = (e.clientX / window.innerWidth - 0.5) * 0.4;
       mouseY = (e.clientY / window.innerHeight - 0.5) * 0.4;
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    let animationFrameId;
+    let animationFrameId = null;
+    let isVisible = true;
+    let isRunning = false;
     const clock = new THREE.Clock();
 
     const animate = () => {
+      if (!isVisible) {
+        isRunning = false;
+        return;
+      }
       animationFrameId = requestAnimationFrame(animate);
       const elapsedTime = clock.getElapsedTime();
 
-      // Faster lerp factor (0.22) for immediate rapid response
       progress += (targetProgress - progress) * 0.22;
 
       treeGroup.rotation.y = elapsedTime * 0.12 + mouseX;
       treeGroup.rotation.x = mouseY * 0.35;
 
-      // 1. Higher base trunk growth (0.35 baseline even before scroll starts!)
       const trunkGrowth = Math.max(progress, 0.35 + Math.sin(elapsedTime * 0.9) * 0.03);
       trunkMesh.scale.y = trunkGrowth;
       trunkMesh.position.y = (1 - trunkGrowth) * -0.15;
 
-      // 2. Branch Growth starts earlier
       branches.forEach((b) => {
         const bProgress = Math.min(Math.max((trunkGrowth - b.startRatio) / 0.25, 0), 1);
         b.mesh.scale.set(bProgress, bProgress, bProgress);
         b.mesh.position.set(0, trunkGrowth * (b.startRatio * 4.2), 0);
       });
 
-      // 3. Full Canopy Expansion starts earlier
       leafClusters.forEach((c, idx) => {
         const cProgress = Math.min(Math.max((trunkGrowth - 0.3) / 0.7, 0), 1);
         const s = cProgress * c.targetScale;
@@ -240,7 +246,6 @@ export default function SproutingHeroCanvas() {
         c.mesh.position.y = c.basePos.y * Math.max(trunkGrowth, 0.35);
       });
 
-      // Particles
       const pArr = pollenParticles.geometry.attributes.position.array;
       for (let i = 1; i < pollenCount * 3; i += 3) {
         pArr[i] += 0.004;
@@ -251,6 +256,23 @@ export default function SproutingHeroCanvas() {
       renderer.render(scene, camera);
     };
 
+    // Pause WebGL rendering loop when scrolled off-screen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !isRunning) {
+          isRunning = true;
+          animate();
+        } else if (!isVisible && isRunning) {
+          isRunning = false;
+          if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        }
+      },
+      { root: null, rootMargin: '100px', threshold: 0 }
+    );
+    observer.observe(container);
+
+    isRunning = true;
     animate();
 
     const handleResize = () => {
@@ -262,16 +284,18 @@ export default function SproutingHeroCanvas() {
       renderer.setSize(w, h);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
       if (container && renderer.domElement) {
         container.removeChild(renderer.domElement);
       }
+      renderer.dispose();
     };
   }, []);
 
@@ -279,8 +303,8 @@ export default function SproutingHeroCanvas() {
     <div className="canvas-container-3d" ref={mountRef}>
       <div className="canvas-scroll-hint">
         <span>🌳 Tree Growth:</span>
-        <span style={{ fontWeight: 800, color: '#8CB974', fontSize: '0.88rem' }}>
-          {scrollProgress === 100 ? '100% Full Canopy Tree ✨' : `${scrollProgress}%`}
+        <span ref={hintTextRef} style={{ fontWeight: 800, color: '#8CB974', fontSize: '0.88rem' }}>
+          0%
         </span>
       </div>
     </div>

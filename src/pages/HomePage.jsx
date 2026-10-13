@@ -95,7 +95,7 @@ export default function HomePage({ setActivePage, openQuoteModal, addToCart, sho
             {services.map((service) => (
               <div className="service-card" key={service.id}>
                 <div className="service-img-wrapper">
-                  <img src={service.image} alt={service.title} />
+                  <img src={service.image} alt={service.title} loading="lazy" decoding="async" />
                 </div>
                 <div className="service-content">
                   <span style={{ fontSize: '0.78rem', color: '#8CB974', fontWeight: 700, textTransform: 'uppercase', marginBottom: '4px' }}>
@@ -142,6 +142,8 @@ export default function HomePage({ setActivePage, openQuoteModal, addToCart, sho
                   <img 
                     src={plant.image} 
                     alt={plant.commonName} 
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = '/images/plant_strelitzia.jpg';

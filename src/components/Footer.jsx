@@ -14,7 +14,7 @@ export default function Footer({ setActivePage }) {
           {/* Brand Info */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
-              <img src="/images/logo_v2.png" alt="Grow Green Logo" style={{ height: '80px', width: '80px', background: '#FFFFFF', padding: '6px', borderRadius: '50%', objectFit: 'contain' }} />
+              <img src="/images/logo_v2.png" alt="Grow Green Logo" loading="lazy" decoding="async" style={{ height: '80px', width: '80px', background: '#FFFFFF', padding: '6px', borderRadius: '50%', objectFit: 'contain' }} />
               <div>
                 <h3 style={{ color: '#FFFFFF', fontSize: '1.4rem', fontWeight: 800 }}>GROW GREEN</h3>
                 <p style={{ color: '#8CB974', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '1px' }}>LANDSCAPING & NURSERY</p>

@@ -46,7 +46,7 @@ export default function CartDrawer({ isOpen, onClose, cart, updateQuantity, remo
           ) : (
             cart.map((item) => (
               <div className="cart-item" key={item.id}>
-                <img src={item.image} alt={item.commonName} className="cart-item-img" />
+                <img src={item.image} alt={item.commonName} loading="lazy" decoding="async" className="cart-item-img" />
                 <div className="cart-item-info">
                   <h4 style={{ fontSize: '0.98rem', color: '#0D4733', marginBottom: '2px' }}>{item.commonName}</h4>
                   <p style={{ fontSize: '0.8rem', fontStyle: 'normal', fontWeight: 500, color: '#4A5D54', marginBottom: '8px' }}>{item.scientificName}</p>

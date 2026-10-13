@@ -74,6 +74,8 @@ export default function TipOfTheDay() {
         <img 
           src="/images/logo_v2.png" 
           alt="Grow Green Emblem" 
+          loading="lazy"
+          decoding="async"
           style={{ height: '96px', width: '96px', objectFit: 'contain', background: '#FFFFFF', padding: '6px', borderRadius: '50%', boxShadow: '0 8px 24px rgba(13,71,51,0.12)' }} 
         />
       </div>

@@ -52,6 +52,8 @@ export default function AboutPage({ openQuoteModal }) {
               <img 
                 src="/images/about_indigenous.jpg" 
                 alt="South African Flora Botanical Garden" 
+                loading="lazy"
+                decoding="async"
                 style={{ width: '100%', borderRadius: '24px', boxShadow: '0 16px 40px rgba(13, 71, 51, 0.15)', objectFit: 'cover', minHeight: '320px', maxHeight: '440px' }} 
               />
               <div className="about-floating-badge">
@@ -81,6 +83,8 @@ export default function AboutPage({ openQuoteModal }) {
                   <img 
                     src={member.image} 
                     alt={member.name}
+                    loading="lazy"
+                    decoding="async"
                     style={member.imagePosition ? { objectPosition: member.imagePosition } : undefined}
                   />
                 </div>
@@ -106,6 +110,8 @@ export default function AboutPage({ openQuoteModal }) {
               <img 
                 src="/images/about_blueprint.jpg" 
                 alt="Landscaping Architectural Design Blueprint" 
+                loading="lazy"
+                decoding="async"
                 style={{ width: '100%', borderRadius: '24px', boxShadow: '0 16px 40px rgba(13, 71, 51, 0.12)', minHeight: '320px', maxHeight: '440px', objectFit: 'cover' }}
               />
             </div>

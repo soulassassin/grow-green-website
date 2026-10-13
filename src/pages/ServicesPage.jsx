@@ -180,6 +180,8 @@ export default function ServicesPage({ openQuoteModal }) {
                   <img 
                     src={service.image} 
                     alt={service.title} 
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

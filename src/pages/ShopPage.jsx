@@ -183,6 +183,8 @@ export default function ShopPage({ addToCart, showToast }) {
                   <img 
                     src={plant.image} 
                     alt={plant.commonName}
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.target.onerror = null;
                       e.target.src = '/images/plant_strelitzia.jpg';
@@ -277,6 +279,8 @@ export default function ShopPage({ addToCart, showToast }) {
                 <img 
                   src={selectedProduct.image} 
                   alt={selectedProduct.commonName} 
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: '100%', height: '240px', objectFit: 'cover', borderRadius: '16px' }}
                   onError={(e) => {
                     e.target.onerror = null;
