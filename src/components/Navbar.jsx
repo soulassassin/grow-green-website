@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Menu, X, Phone, Mail, Leaf, Home, Wrench, Users, Sprout, PhoneCall, MessageCircle, ChevronRight } from 'lucide-react';
+import { ShoppingBag, Menu, X, Phone, Mail, Leaf, Home, Wrench, Users, Sprout, PhoneCall, MessageCircle, ChevronRight, BookOpen } from 'lucide-react';
 
 export default function Navbar({ activePage, setActivePage, cartCount, openCart, openQuoteModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,6 +9,7 @@ export default function Navbar({ activePage, setActivePage, cartCount, openCart,
     { id: 'services', label: 'Services', icon: <Wrench size={20} /> },
     { id: 'about', label: 'About Us', icon: <Users size={20} /> },
     { id: 'shop', label: 'Shop Plants & Nursery', icon: <Sprout size={20} /> },
+    { id: 'blog', label: 'Blog & Guides', icon: <BookOpen size={20} /> },
     { id: 'contact', label: 'Contact', icon: <PhoneCall size={20} /> }
   ];
 
@@ -74,7 +75,7 @@ export default function Navbar({ activePage, setActivePage, cartCount, openCart,
           {navItems.map((item) => (
             <li key={item.id}>
               <button
-                className={`nav-link ${activePage === item.id ? 'active' : ''}`}
+                className={`nav-link ${(activePage === item.id || (item.id === 'blog' && activePage === 'blog-post')) ? 'active' : ''}`}
                 onClick={() => handleNavClick(item.id)}
                 style={{ background: 'none', border: 'none' }}
               >
@@ -153,7 +154,7 @@ export default function Navbar({ activePage, setActivePage, cartCount, openCart,
             {/* Spacious Navigation List */}
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {navItems.map((item) => {
-                const isActive = activePage === item.id;
+                const isActive = activePage === item.id || (item.id === 'blog' && activePage === 'blog-post');
                 return (
                   <li key={item.id}>
                     <button

@@ -1,0 +1,38 @@
+name: Auto-Publish Scheduled Blog Revalidation
+
+on:
+  # Schedule: Every Monday, Wednesday, Friday at 06:00 UTC (08:00 SAST)
+  schedule:
+    - cron: '0 6 * * 1,3,5'
+  # Allow manual trigger from GitHub Actions dashboard
+  workflow_dispatch:
+
+jobs:
+  revalidate-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Blog Editorial Validation Audit
+        run: node scripts/validate-blog.cjs
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Trigger Vercel Deploy Hook (if configured)
+        if: env.VERCEL_DEPLOY_HOOK != ''
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          echo "Triggering Vercel zero-touch rebuild deploy hook..."
+          curl -X POST "$VERCEL_DEPLOY_HOOK"

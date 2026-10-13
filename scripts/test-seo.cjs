@@ -27,7 +27,7 @@ function runAudit() {
     errors++;
   } else {
     const sitemap = fs.readFileSync(sitemapPath, 'utf8');
-    const urls = ['https://growgreensa.com/', 'https://growgreensa.com/services', 'https://growgreensa.com/shop', 'https://growgreensa.com/about', 'https://growgreensa.com/contact'];
+    const urls = ['https://growgreensa.com/', 'https://growgreensa.com/services', 'https://growgreensa.com/shop', 'https://growgreensa.com/blog', 'https://growgreensa.com/about', 'https://growgreensa.com/contact'];
     let allFound = true;
     for (const u of urls) {
       if (!sitemap.includes(u)) {

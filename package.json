@@ -8,11 +8,14 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "optimize:images": "node scripts/optimize-images.cjs"
+    "optimize:images": "node scripts/optimize-images.cjs",
+    "test:blog": "node scripts/validate-blog.cjs",
+    "test:seo": "node scripts/test-seo.cjs"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.8",
     "lucide-react": "^1.27.0",
+    "marked": "^18.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "three": "^0.185.1"

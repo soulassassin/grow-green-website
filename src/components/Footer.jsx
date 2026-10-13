@@ -53,12 +53,17 @@ export default function Footer({ setActivePage }) {
               </li>
               <li>
                 <button onClick={() => handleNav('shop')} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', cursor: 'pointer' }}>
-                  Nursery Catalog (30+ Plants)
+                  Nursery Catalog (40 Plants)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('blog')} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', cursor: 'pointer' }}>
+                  Blog &amp; Outdoor Design Guides
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('contact')} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', cursor: 'pointer' }}>
-                  Contact Us & Location Map
+                  Contact Us &amp; Location Map
                 </button>
               </li>
             </ul>

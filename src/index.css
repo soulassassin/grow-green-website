@@ -1237,3 +1237,117 @@ button {
   .cart-footer { padding: 16px; }
 }
 
+/* =========================================================================
+   BLOG & OUTDOOR DESIGN STYLES
+   ========================================================================= */
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(13, 71, 51, 0.12) !important;
+  border-color: #8CB974 !important;
+}
+
+.blog-card:hover img {
+  transform: scale(1.05);
+}
+
+.featured-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(13, 71, 51, 0.16) !important;
+}
+
+/* Blog Prose Styles */
+.blog-prose-content h2 {
+  font-size: 1.85rem;
+  color: #0D4733;
+  margin-top: 36px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #E0E7E2;
+}
+
+.blog-prose-content h3 {
+  font-size: 1.45rem;
+  color: #0D4733;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.blog-prose-content h4 {
+  font-size: 1.18rem;
+  color: #1B2A23;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.blog-prose-content p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.blog-prose-content ul, 
+.blog-prose-content ol {
+  margin-bottom: 24px;
+  padding-left: 28px;
+}
+
+.blog-prose-content li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.blog-prose-content blockquote {
+  background: #F4F7F4;
+  border-left: 4px solid #8CB974;
+  padding: 18px 24px;
+  border-radius: 0 16px 16px 0;
+  margin: 28px 0;
+  font-style: italic;
+  color: #0D4733;
+}
+
+.blog-prose-content hr {
+  border: none;
+  border-top: 1px solid #E0E7E2;
+  margin: 40px 0;
+}
+
+.blog-prose-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.blog-prose-content th {
+  background: #0D4733;
+  color: #FFFFFF;
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.blog-prose-content td {
+  padding: 12px 18px;
+  border-bottom: 1px solid #E0E7E2;
+  font-size: 0.92rem;
+}
+
+.blog-prose-content tr:nth-child(even) {
+  background: #F8FAF8;
+}
+
+.blog-prose-content pre {
+  background: #1B2A23;
+  color: #8CB974;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 24px 0;
+}
+

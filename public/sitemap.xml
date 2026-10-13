@@ -30,7 +30,7 @@
     </image:image>
   </url>
 
-  <!-- 3. Nursery Shop Page (40+ Native Plants & Trees) -->
+  <!-- 3. Nursery Shop Page (40 Native Plants & Trees) -->
   <url>
     <loc>https://growgreensa.com/shop</loc>
     <lastmod>2026-10-13</lastmod>
@@ -66,7 +66,63 @@
     </image:image>
   </url>
 
-  <!-- 4. About Us & Team Leadership Page -->
+  <!-- 4. Blog & Outdoor Design Hub -->
+  <url>
+    <loc>https://growgreensa.com/blog</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Pillar Post 1: Landscape Design -->
+  <url>
+    <loc>https://growgreensa.com/blog/modern-landscape-design-principles-for-homeowners</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/service_residential.jpg</image:loc>
+      <image:title>Modern Landscape Design Principles for Homeowners</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog Pillar Post 2: Hardscaping -->
+  <url>
+    <loc>https://growgreensa.com/blog/durable-hardscaping-paving-retaining-wall-guide</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/service_commercial.jpg</image:loc>
+      <image:title>Durable Hardscaping: Paving and Retaining Wall Guide</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog Pillar Post 3: Smart Irrigation -->
+  <url>
+    <loc>https://growgreensa.com/blog/smart-irrigation-and-drainage-solutions</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/service_maintenance.jpg</image:loc>
+      <image:title>Smart Irrigation and Drainage Solutions</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog Pillar Post 4: Hydroponics -->
+  <url>
+    <loc>https://growgreensa.com/blog/beginner-guide-to-hydroponics-and-controlled-growing</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/plant_rosemary.jpg</image:loc>
+      <image:title>Beginner Guide to Hydroponics and Controlled Growing</image:title>
+    </image:image>
+  </url>
+
+  <!-- 5. About Us & Team Leadership Page -->
   <url>
     <loc>https://growgreensa.com/about</loc>
     <lastmod>2026-10-13</lastmod>
@@ -86,7 +142,7 @@
     </image:image>
   </url>
 
-  <!-- 5. Contact & Free Quote Page -->
+  <!-- 6. Contact & Free Quote Page -->
   <url>
     <loc>https://growgreensa.com/contact</loc>
     <lastmod>2026-10-13</lastmod>

@@ -10,16 +10,27 @@ import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
 import ShopPage from './pages/ShopPage';
 import ContactPage from './pages/ContactPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
+import { getPostBySlug } from './utils/blogEngine';
 
-const getInitialPage = () => {
-  if (typeof window === 'undefined') return 'home';
-  const clean = window.location.pathname.replace(/^\/|\/$/g, '').toLowerCase();
+const parsePath = () => {
+  if (typeof window === 'undefined') return { page: 'home', slug: null };
+  const raw = window.location.pathname.replace(/^\/|\/$/g, '').toLowerCase();
+  if (raw === 'blog') return { page: 'blog', slug: null };
+  if (raw.startsWith('blog/')) {
+    const slug = raw.substring(5);
+    return { page: 'blog-post', slug };
+  }
   const valid = ['services', 'about', 'shop', 'contact'];
-  return valid.includes(clean) ? clean : 'home';
+  if (valid.includes(raw)) return { page: raw, slug: null };
+  return { page: 'home', slug: null };
 };
 
 export default function App() {
-  const [activePage, setActivePage] = useState(getInitialPage);
+  const initial = parsePath();
+  const [activePage, setActivePage] = useState(initial.page);
+  const [activeBlogSlug, setActiveBlogSlug] = useState(initial.slug);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -28,18 +39,29 @@ export default function App() {
   // Sync route with browser history
   const handleSetActivePage = (page) => {
     setActivePage(page);
+    setActiveBlogSlug(null);
     const targetPath = page === 'home' ? '/' : `/${page}`;
     if (window.location.pathname !== targetPath) {
-      window.history.pushState({ page }, '', targetPath);
+      window.history.pushState({ page, slug: null }, '', targetPath);
     }
+  };
+
+  const handleSelectBlogPost = (slug) => {
+    setActivePage('blog-post');
+    setActiveBlogSlug(slug);
+    const targetPath = `/blog/${slug}`;
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({ page: 'blog-post', slug }, '', targetPath);
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Listen for browser back / forward navigation
   useEffect(() => {
     const handlePopState = () => {
-      const clean = window.location.pathname.replace(/^\/|\/$/g, '').toLowerCase();
-      const valid = ['services', 'about', 'shop', 'contact'];
-      setActivePage(valid.includes(clean) ? clean : 'home');
+      const { page, slug } = parsePath();
+      setActivePage(page);
+      setActiveBlogSlug(slug);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -53,13 +75,17 @@ export default function App() {
       services: "Landscaping & Nursery Services | Grow Green South Africa",
       about: "About Us & Leadership | Grow Green South Africa",
       shop: "Shop Indigenous & Exotic Plants | Grow Green Nursery",
-      contact: "Contact & Free Quote | Grow Green Johannesburg"
+      contact: "Contact & Free Quote | Grow Green Johannesburg",
+      blog: "Landscaping & Outdoor Living Blog | Grow Green South Africa"
     };
 
-    if (pageTitles[activePage]) {
+    if (activePage === 'blog-post' && activeBlogSlug) {
+      const post = getPostBySlug(activeBlogSlug, true);
+      document.title = post ? `${post.title} | Grow Green Blog` : "Blog Guide | Grow Green";
+    } else if (pageTitles[activePage]) {
       document.title = pageTitles[activePage];
     }
-  }, [activePage]);
+  }, [activePage, activeBlogSlug]);
 
   // Load cart from localStorage if exists
   useEffect(() => {
@@ -155,6 +181,23 @@ export default function App() {
         {activePage === 'shop' && (
           <ShopPage 
             addToCart={addToCart}
+            showToast={showToast}
+          />
+        )}
+
+        {activePage === 'blog' && (
+          <BlogPage 
+            onSelectPost={handleSelectBlogPost}
+            openQuoteModal={() => setIsQuoteModalOpen(true)}
+          />
+        )}
+
+        {activePage === 'blog-post' && (
+          <BlogPostPage 
+            slug={activeBlogSlug}
+            onBack={() => handleSetActivePage('blog')}
+            onSelectPost={handleSelectBlogPost}
+            openQuoteModal={() => setIsQuoteModalOpen(true)}
             showToast={showToast}
           />
         )}
