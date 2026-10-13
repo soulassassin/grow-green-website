@@ -1,0 +1,24 @@
+# ==========================================
+# Robots.txt for Grow Green (Pty) Ltd
+# Website: https://growgreensa.com/
+# Google Search Console Indexing Protocol
+# ==========================================
+
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /services
+Allow: /about
+Allow: /shop
+Allow: /contact
+
+# Googlebot specific directives
+User-agent: Googlebot
+Allow: /
+Allow: /images/
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Primary XML Sitemap for Google Search Console
+Sitemap: https://growgreensa.com/sitemap.xml

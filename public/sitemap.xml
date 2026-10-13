@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- 1. Homepage -->
+  <url>
+    <loc>https://growgreensa.com/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/service_residential.jpg</image:loc>
+      <image:title>Grow Green Luxury Residential Landscaping Johannesburg</image:title>
+      <image:caption>Premier eco-friendly estate landscaping in Johannesburg by Grow Green</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 2. Services Page -->
+  <url>
+    <loc>https://growgreensa.com/services</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/service_commercial.jpg</image:loc>
+      <image:title>Commercial Landscaping &amp; Urban Greening South Africa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/service_maintenance.jpg</image:loc>
+      <image:title>Lawn Care &amp; Estate Turf Maintenance Johannesburg</image:title>
+    </image:image>
+  </url>
+
+  <!-- 3. Nursery Shop Page (40+ Native Plants & Trees) -->
+  <url>
+    <loc>https://growgreensa.com/shop</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/plant_strelitzia.jpg</image:loc>
+      <image:title>Bird of Paradise (Strelitzia reginae) Indigenous South Africa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/plant_protea.jpg</image:loc>
+      <image:title>King Protea (Protea cynaroides) National Flower South Africa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/plant_spekboom.jpg</image:loc>
+      <image:title>Spekboom Elephant Bush Carbon Miracle Plant</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/plant_clivia.jpg</image:loc>
+      <image:title>Bush Lily Clivia miniata Shade Flowering Plant</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/plant_agapanthus.jpg</image:loc>
+      <image:title>African Lily Agapanthus praecox Blue Indigenous</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/plant_dietes.jpg</image:loc>
+      <image:title>Wild Fairy Iris Dietes grandiflora Hardy Evergreen</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/plant_plumbago.jpg</image:loc>
+      <image:title>Cape Leadwort Plumbago auriculata Baby Blue Shrub</image:title>
+    </image:image>
+  </url>
+
+  <!-- 4. About Us & Team Leadership Page -->
+  <url>
+    <loc>https://growgreensa.com/about</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/about_indigenous.jpg</image:loc>
+      <image:title>Grow Green Indigenous Flora Botanical Stewardship</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/about_blueprint.jpg</image:loc>
+      <image:title>Landscape Architecture Design &amp; Site Planning</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/staff_cullen.jpg</image:loc>
+      <image:title>Cullen Hettema - Founder &amp; CEO Grow Green</image:title>
+    </image:image>
+  </url>
+
+  <!-- 5. Contact & Free Quote Page -->
+  <url>
+    <loc>https://growgreensa.com/contact</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://growgreensa.com/images/contact_map.jpg</image:loc>
+      <image:title>Grow Green Headquarters Location Map Johannesburg</image:title>
+    </image:image>
+  </url>
+</urlset>

@@ -11,12 +11,55 @@ import AboutPage from './pages/AboutPage';
 import ShopPage from './pages/ShopPage';
 import ContactPage from './pages/ContactPage';
 
+const getInitialPage = () => {
+  if (typeof window === 'undefined') return 'home';
+  const clean = window.location.pathname.replace(/^\/|\/$/g, '').toLowerCase();
+  const valid = ['services', 'about', 'shop', 'contact'];
+  return valid.includes(clean) ? clean : 'home';
+};
+
 export default function App() {
-  const [activePage, setActivePage] = useState('home');
+  const [activePage, setActivePage] = useState(getInitialPage);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState(null);
+
+  // Sync route with browser history
+  const handleSetActivePage = (page) => {
+    setActivePage(page);
+    const targetPath = page === 'home' ? '/' : `/${page}`;
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({ page }, '', targetPath);
+    }
+  };
+
+  // Listen for browser back / forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const clean = window.location.pathname.replace(/^\/|\/$/g, '').toLowerCase();
+      const valid = ['services', 'about', 'shop', 'contact'];
+      setActivePage(valid.includes(clean) ? clean : 'home');
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update dynamic page title for Google Search Console and SEO
+  useEffect(() => {
+    const pageTitles = {
+      home: "Grow Green | Premium Landscaping & Nursery South Africa",
+      services: "Landscaping & Nursery Services | Grow Green South Africa",
+      about: "About Us & Leadership | Grow Green South Africa",
+      shop: "Shop Indigenous & Exotic Plants | Grow Green Nursery",
+      contact: "Contact & Free Quote | Grow Green Johannesburg"
+    };
+
+    if (pageTitles[activePage]) {
+      document.title = pageTitles[activePage];
+    }
+  }, [activePage]);
 
   // Load cart from localStorage if exists
   useEffect(() => {
@@ -80,7 +123,7 @@ export default function App() {
       {/* Top Glass Navbar */}
       <Navbar 
         activePage={activePage} 
-        setActivePage={setActivePage}
+        setActivePage={handleSetActivePage}
         cartCount={totalCartItemsCount}
         openCart={() => setIsCartOpen(true)}
         openQuoteModal={() => setIsQuoteModalOpen(true)}
@@ -90,7 +133,7 @@ export default function App() {
       <main style={{ flex: 1 }}>
         {activePage === 'home' && (
           <HomePage 
-            setActivePage={setActivePage}
+            setActivePage={handleSetActivePage}
             openQuoteModal={() => setIsQuoteModalOpen(true)}
             addToCart={addToCart}
             showToast={showToast}
@@ -124,7 +167,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer setActivePage={setActivePage} />
+      <Footer setActivePage={handleSetActivePage} />
 
       {/* Sticky Floating WhatsApp Action Widget */}
       <WhatsAppWidget />
@@ -139,17 +182,16 @@ export default function App() {
         clearCart={clearCart}
       />
 
-      {/* Quote Request Modal */}
+      {/* Quote & Consultation Modal */}
       <QuoteModal 
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
         showToast={showToast}
       />
 
-      {/* Toast Notification Banner */}
+      {/* Toast Notification */}
       {toastMessage && (
-        <div className="toast-container">
-          <span>🌿</span>
+        <div className="toast-notification">
           <span>{toastMessage}</span>
         </div>
       )}
