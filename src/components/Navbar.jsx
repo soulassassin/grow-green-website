@@ -1,16 +1,43 @@
-import React, { useState } from 'react';
-import { ShoppingBag, Menu, X, Phone, Mail, Leaf, Home, Wrench, Users, Sprout, PhoneCall, MessageCircle, ChevronRight, BookOpen } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { 
+  ShoppingBag, 
+  Menu, 
+  X, 
+  Phone, 
+  Mail, 
+  Leaf, 
+  Home, 
+  Wrench, 
+  Users, 
+  Sprout, 
+  PhoneCall, 
+  MessageCircle, 
+  ChevronRight, 
+  BookOpen 
+} from 'lucide-react';
 
 export default function Navbar({ activePage, setActivePage, cartCount, openCart, openQuoteModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navItems = [
-    { id: 'home', label: 'Home', icon: <Home size={20} /> },
-    { id: 'services', label: 'Services', icon: <Wrench size={20} /> },
-    { id: 'about', label: 'About Us', icon: <Users size={20} /> },
-    { id: 'shop', label: 'Shop Plants & Nursery', icon: <Sprout size={20} /> },
-    { id: 'blog', label: 'Blog & Guides', icon: <BookOpen size={20} /> },
-    { id: 'contact', label: 'Contact', icon: <PhoneCall size={20} /> }
+    { id: 'home', label: 'Home', icon: <Home size={18} /> },
+    { id: 'services', label: 'Services', icon: <Wrench size={18} /> },
+    { id: 'about', label: 'About Us', icon: <Users size={18} /> },
+    { id: 'shop', label: 'Shop Plants & Nursery', icon: <Sprout size={18} /> },
+    { id: 'blog', label: 'Blog & Guides', icon: <BookOpen size={18} /> },
+    { id: 'contact', label: 'Contact', icon: <PhoneCall size={18} /> }
   ];
 
   const handleNavClick = (pageId) => {
@@ -20,21 +47,21 @@ export default function Navbar({ activePage, setActivePage, cartCount, openCart,
   };
 
   return (
-    <header className="navbar-header" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}>
+    <header className="navbar-header">
       {/* 1. Integrated Sticky Top Contact Bar */}
-      <div style={{ background: '#0D4733', color: '#8CB974', fontSize: '0.8rem', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+      <div className="navbar-top-bar">
+        <div className="navbar-top-bar-container">
+          <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
               <Phone size={13} color="#8CB974" />
               <a href="tel:+27615046752" style={{ color: '#FFFFFF', fontWeight: 500 }}>+27 61 504 6752</a>
             </span>
-            <span className="top-bar-email" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span className="top-bar-email" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
               <Mail size={13} color="#8CB974" />
               <a href="mailto:cullen@growgreensa.com" style={{ color: '#FFFFFF', fontWeight: 500 }}>cullen@growgreensa.com</a>
             </span>
           </div>
-          <div className="top-bar-tagline" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#FFFFFF', fontWeight: 500 }}>
+          <div className="top-bar-tagline" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#FFFFFF', fontWeight: 500 }}>
             <Leaf size={13} color="#8CB974" />
             <span>South Africa Premium Nursery & Landscaping</span>
           </div>
@@ -42,199 +69,174 @@ export default function Navbar({ activePage, setActivePage, cartCount, openCart,
       </div>
 
       {/* 2. Sticky Main Glass Navbar */}
-      <div className="container navbar-container">
-        {/* Mobile Toggle Button (Far Left on Mobile) */}
-        <button 
-          className="mobile-menu-btn" 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Navigation Menu"
-        >
-          {mobileMenuOpen ? <X size={24} color="#0D4733" /> : <Menu size={24} color="#0D4733" />}
-        </button>
-
-        {/* Brand Logo - Centered on Mobile */}
+      <div className="navbar-container">
+        {/* Brand Logo (Left) */}
         <div 
           className="brand-logo" 
           onClick={() => handleNavClick('home')}
-          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}
+          aria-label="Grow Green Home"
         >
           <img 
             src="/images/logo_header.png" 
-            alt="Grow Green Landscaping & Nursery Logo" 
+            alt="Grow Green Landscaping & Nursery" 
             className="brand-logo-img"
-            style={{ height: '64px', width: 'auto', display: 'block', objectFit: 'contain' }} 
           />
-          <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-            <span className="brand-title" style={{ color: '#0D4733', fontSize: '1.25rem', fontWeight: 800, lineHeight: 1 }}>GROW GREEN</span>
-            <span className="brand-subtitle" style={{ color: '#8CB974', fontSize: '0.62rem', letterSpacing: '1.2px', textTransform: 'uppercase', fontWeight: 700 }}>Landscaping & Nursery</span>
+          <div className="brand-text-group">
+            <span className="brand-title">GROW GREEN</span>
+            <span className="brand-subtitle">Landscaping & Nursery</span>
           </div>
         </div>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links (Center) */}
         <ul className="nav-links">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <button
-                className={`nav-link ${(activePage === item.id || (item.id === 'blog' && activePage === 'blog-post')) ? 'active' : ''}`}
-                onClick={() => handleNavClick(item.id)}
-                style={{ background: 'none', border: 'none' }}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activePage === item.id || (item.id === 'blog' && activePage === 'blog-post');
+            return (
+              <li key={item.id}>
+                <button
+                  className={`nav-link ${isActive ? 'active' : ''}`}
+                  onClick={() => handleNavClick(item.id)}
+                >
+                  {item.label}
+                </button>
+              </li>
+            );
+          })}
         </ul>
 
-        {/* Navigation Actions (Far Right) */}
-        <div className="nav-actions" style={{ gap: '10px' }}>
+        {/* Navigation Actions (Right) */}
+        <div className="nav-actions">
+          {/* Cart Button */}
           <button 
             className="btn cart-btn" 
             onClick={openCart} 
-            style={{ background: '#F4F7F4', color: '#0D4733', padding: '8px 14px', position: 'relative' }}
             aria-label="View Shopping Cart"
           >
             <ShoppingBag size={18} color="#0D4733" />
-            <span className="cart-text" style={{ fontWeight: 700, fontSize: '0.85rem' }}>Cart</span>
+            <span className="cart-text">Cart</span>
             {cartCount > 0 && (
-              <span className="cart-badge" style={{
-                position: 'absolute',
-                top: '-4px',
-                right: '-4px',
-                background: '#8CB974',
-                color: '#0D4733',
-                width: '20px',
-                height: '20px',
-                borderRadius: '50%',
-                fontSize: '0.72rem',
-                fontWeight: 800,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
+              <span className="cart-badge">
                 {cartCount}
               </span>
             )}
           </button>
 
-          <button className="btn btn-primary desktop-quote-btn" onClick={openQuoteModal} style={{ padding: '8px 20px', fontSize: '0.88rem' }}>
+          {/* Desktop Primary CTA */}
+          <button 
+            className="btn btn-primary desktop-quote-btn" 
+            onClick={openQuoteModal}
+          >
             Get a Quote
+          </button>
+
+          {/* Mobile Menu Toggle Button (Visible only on <=992px) */}
+          <button 
+            className="mobile-menu-btn" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={22} color="#0D4733" /> : <Menu size={22} color="#0D4733" />}
           </button>
         </div>
       </div>
 
-      {/* 3. Spacious Mobile Overlay Menu */}
+      {/* 3. Luxury Mobile Menu Drawer & Overlay */}
       {mobileMenuOpen && (
-        <div style={{
-          position: 'fixed',
-          top: '76px',
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(255, 255, 255, 0.98)',
-          backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)',
-          zIndex: 999,
-          overflowY: 'auto',
-          padding: '24px 20px 48px 20px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          animation: 'fadeIn 0.25s ease-out'
-        }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', paddingBottom: '12px', borderBottom: '1px solid #EAEFEA' }}>
-              <span style={{ fontSize: '0.78rem', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', color: '#8CB974' }}>
-                Main Navigation
-              </span>
-              <span style={{ fontSize: '0.78rem', color: '#4A5D54' }}>
-                Grow Green SA
-              </span>
+        <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}>
+          <div 
+            className="mobile-menu-drawer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Drawer Header */}
+            <div className="mobile-menu-header">
+              <div 
+                className="brand-logo" 
+                onClick={() => handleNavClick('home')}
+                style={{ cursor: 'pointer' }}
+              >
+                <img 
+                  src="/images/logo_header.png" 
+                  alt="Grow Green" 
+                  style={{ height: '42px', width: 'auto', objectFit: 'contain' }} 
+                />
+                <div className="brand-text-group">
+                  <span className="brand-title" style={{ fontSize: '1.1rem' }}>GROW GREEN</span>
+                  <span className="brand-subtitle" style={{ fontSize: '0.55rem' }}>Landscaping & Nursery</span>
+                </div>
+              </div>
+              <button 
+                className="mobile-menu-close-btn"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <X size={20} color="#0D4733" />
+              </button>
             </div>
 
-            {/* Spacious Navigation List */}
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {navItems.map((item) => {
-                const isActive = activePage === item.id || (item.id === 'blog' && activePage === 'blog-post');
-                return (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => handleNavClick(item.id)}
-                      style={{
-                        width: '100%',
-                        textAlign: 'left',
-                        background: isActive ? '#0D4733' : '#F8FAF8',
-                        color: isActive ? '#FFFFFF' : '#0D4733',
-                        border: '1px solid',
-                        borderColor: isActive ? '#0D4733' : '#EAEFEA',
-                        padding: '16px 20px',
-                        borderRadius: '16px',
-                        fontSize: '1.1rem',
-                        fontWeight: 700,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        boxShadow: isActive ? '0 8px 20px rgba(13,71,51,0.2)' : 'none',
-                        transition: 'all 0.2s ease'
-                      }}
-                    >
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                        <span style={{ color: isActive ? '#8CB974' : '#0D4733' }}>
-                          {item.icon}
-                        </span>
-                        <span>{item.label}</span>
-                      </div>
-                      <ChevronRight size={18} color={isActive ? '#8CB974' : '#4A5D54'} />
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+            {/* Drawer Content */}
+            <div className="mobile-menu-content">
+              <div className="mobile-menu-section-tag">Explore Grow Green</div>
 
-          {/* Quick Actions & Contact Section in Mobile Menu */}
-          <div style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid #EAEFEA', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <button 
-              className="btn btn-primary" 
-              onClick={() => {
-                setMobileMenuOpen(false);
-                openQuoteModal();
-              }}
-              style={{ width: '100%', padding: '15px', fontSize: '1rem', fontWeight: 700, borderRadius: '16px' }}
-            >
-              Get a Free Project Quote
-            </button>
+              {/* Navigation List */}
+              <ul className="mobile-nav-list">
+                {navItems.map((item) => {
+                  const isActive = activePage === item.id || (item.id === 'blog' && activePage === 'blog-post');
+                  return (
+                    <li key={item.id}>
+                      <button
+                        className={`mobile-nav-item ${isActive ? 'active' : ''}`}
+                        onClick={() => handleNavClick(item.id)}
+                      >
+                        <div className="mobile-nav-item-left">
+                          <span className="mobile-nav-icon">{item.icon}</span>
+                          <span className="mobile-nav-label">{item.label}</span>
+                        </div>
+                        <ChevronRight size={18} className="mobile-nav-chevron" />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
 
-            <a 
-              href="https://wa.me/27615046752?text=Hello%20Cullen!%20I'd%20like%20to%20inquire%20about%20Grow%20Green%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn"
-              style={{ width: '100%', background: '#25D366', color: '#FFFFFF', padding: '14px', fontSize: '0.98rem', fontWeight: 700, borderRadius: '16px' }}
-            >
-              <MessageCircle size={20} color="#FFFFFF" fill="#FFFFFF" />
-              <span>WhatsApp Us (+27 61 504 6752)</span>
-            </a>
+              {/* Action Buttons & Quick Contacts */}
+              <div className="mobile-menu-actions">
+                <button 
+                  className="btn btn-primary mobile-quote-cta"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openQuoteModal();
+                  }}
+                >
+                  Get a Free Project Quote
+                </button>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '6px' }}>
-              <a 
-                href="tel:+27615046752"
-                style={{ background: '#F4F7F4', color: '#0D4733', padding: '12px', borderRadius: '12px', textAlign: 'center', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
-              >
-                <Phone size={14} color="#0D4733" />
-                <span>Call Us</span>
-              </a>
-              <a 
-                href="mailto:cullen@growgreensa.com"
-                style={{ background: '#F4F7F4', color: '#0D4733', padding: '12px', borderRadius: '12px', textAlign: 'center', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
-              >
-                <Mail size={14} color="#0D4733" />
-                <span>Email Us</span>
-              </a>
-            </div>
+                <a 
+                  href="https://wa.me/27615046752?text=Hello%20Cullen!%20I'd%20like%20to%20inquire%20about%20Grow%20Green%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mobile-whatsapp-cta"
+                >
+                  <MessageCircle size={18} fill="#FFFFFF" color="#FFFFFF" />
+                  <span>WhatsApp Cullen (+27 61 504 6752)</span>
+                </a>
 
-            <div style={{ textAlign: 'center', marginTop: '16px', fontSize: '0.78rem', color: '#4A5D54', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-              <Leaf size={14} color="#8CB974" />
-              <span>South Africa Premium Nursery & Landscaping</span>
+                <div className="mobile-quick-contacts">
+                  <a href="tel:+27615046752" className="mobile-contact-pill">
+                    <Phone size={14} color="#0D4733" />
+                    <span>Call Us</span>
+                  </a>
+                  <a href="mailto:cullen@growgreensa.com" className="mobile-contact-pill">
+                    <Mail size={14} color="#0D4733" />
+                    <span>Email Us</span>
+                  </a>
+                </div>
+
+                <div className="mobile-menu-tagline">
+                  <Leaf size={14} color="#8CB974" />
+                  <span>Transforming Spaces, Growing Life</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
