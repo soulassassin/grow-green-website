@@ -123,6 +123,24 @@ export default function Footer({ setActivePage }) {
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '28px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px', fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)' }}>
           <p>© {new Date().getFullYear()} Grow Green (Pty) Ltd. All rights reserved.</p>
           <p style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            Designed and Distributed by{' '}
+            <a
+              href="https://synapsesnetworking.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#8CB974',
+                textDecoration: 'none',
+                fontWeight: 600,
+                transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#8CB974')}
+            >
+              Synapses Networking
+            </a>
+          </p>
+          <p style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             Crafted with <Heart size={14} color="#8CB974" fill="#8CB974" /> for South African Nature
           </p>
         </div>

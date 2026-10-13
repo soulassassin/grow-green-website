@@ -98,7 +98,7 @@ export default function ShopPage({ addToCart, showToast }) {
             </span>
             <h1 style={{ color: '#FFFFFF', fontSize: '2.4rem', marginTop: '4px', fontFamily: "'Montserrat', sans-serif" }}>Shop South African Plants</h1>
             <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.98rem', marginTop: '4px' }}>
-              Pre-populated nursery collection featuring 30 healthy, indigenous & exotic specimens.
+              Pre-populated nursery collection featuring {plantsData.length} healthy, indigenous & exotic specimens.
             </p>
           </div>
 
